@@ -22,14 +22,16 @@ const search = async (searchTerm: string) => {
   const res = await fetch(
     `https://serpapi.com/search.json?q=${searchTerm}&api_key=${process.env.API_KEY}`
   );
+
+  //throw new Error("Something broke...")
   const data: SearchResult = await res.json();
   return data;
 };
 
 async function SearchResults({ params: { searchTerm } }: PageProps) {
   const searchResults = await search(searchTerm);
-  console.log("Result")
-  console.log(searchResults)
+  console.log("Result");
+  console.log(searchResults);
   return (
     <div>
       <p className="text-gray-500 text-sm">You searched for: {searchTerm}</p>

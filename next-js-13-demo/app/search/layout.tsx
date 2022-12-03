@@ -12,7 +12,7 @@ export default function RootLayout({
       </div>
       <div className="flex-1 pl-5">
         <Search />
-        <div>{children}</div>
+        <div className="bg-red-200">{children}</div>
       </div>
     </main>
   );
