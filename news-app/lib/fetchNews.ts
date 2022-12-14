@@ -62,7 +62,7 @@ const fetchNews = async (
       }),
     }
   );
-  console.log("Loading new data from api for category >>>", category, keywords);
+  console.log("Loading new data from api for category >>>", category?category:"", keywords?keywords:"");
 
   const newsResponse = await res.json();
   // Sort function by images vs not images present
