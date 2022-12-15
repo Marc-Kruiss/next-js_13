@@ -1,18 +1,23 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from '../schemas'
+import { defineConfig } from "sanity";
+import { deskTool } from "sanity/desk";
+import { schemaTypes } from "./schemas";
+import { visionTool } from "@sanity/vision";
+import { myTheme } from "./theme";
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_ID!;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
-  name: 'default',
-  title: 'nextjs13 sanity blog',
-
-  projectId: 'jlmzoztv',
-  dataset: 'production',
+  basePath: "/studio",
+  name: "Kruiss_Content_Studio",
+  title: "Kruiss Content Studio",
+  projectId,
+  dataset,
 
   plugins: [deskTool(), visionTool()],
 
   schema: {
     types: schemaTypes,
   },
-})
+  theme: myTheme,
+});
