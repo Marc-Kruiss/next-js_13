@@ -1,5 +1,33 @@
 # Next.js + Tailwind CSS Example
 
+## Added sanity project
+```bash
+npm install -g @sanity/cli 
+```
+```bash
+npm i sanity@latest  
+``` 
+```bash
+sanity init 
+```
+```bash
+npm install next-sanity @portabletext/react @sanity/image-url
+```
+
+### Copy (dev-)dependencies from sanity package.json to next-project package.json
+* @sanity/vision
+* styled-components
+* @sanity/eslint-config-studio
+
+```bash
+npm i
+```
+
+Then delete sanity-cms folder
+
+<br>
+<br>
+
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
 ## Deploy your own
