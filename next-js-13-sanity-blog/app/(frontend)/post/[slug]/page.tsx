@@ -1,9 +1,25 @@
 import { PortableText } from "@portabletext/react";
 import dayjs from "dayjs";
+import { groq } from "next-sanity";
 import Image from "next/image";
 import { RichText } from "../../../../components/RichText";
-import { urlFor } from "../../../../lib/sanity.client";
+import { client, urlFor } from "../../../../lib/sanity.client";
 import { fetchPost } from "../../../../utils/fetchPosts";
+
+export async function generateStaticParams() {
+  const query = groq`
+  *[_type=="post"]{
+    slug
+  }
+  `;
+  const slugs: Post[] = await client.fetch(query);
+  const routes = slugs.map((post) => post.slug.current);
+  return routes.map((slug) => ({
+    slug: slug /*Das erste "slug" kommt vom Ordnernamen*/,
+  }));
+}
+
+export const revalidate = 100;
 
 const PostDetailPage = async ({ params }: any) => {
   const post: Post = await fetchPost(params.slug);
