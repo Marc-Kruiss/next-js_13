@@ -8,6 +8,7 @@ export const revalidate = 60; // in seconds
 
 const Homepage = async () => {
   if (previewData()) {
+    const posts = await fetchPosts();
     return (
       <PreviewSuspense
         fallback={
@@ -16,7 +17,9 @@ const Homepage = async () => {
           </div>
         }
       >
-        <div>Hallo</div>
+        <p>Preview</p>
+        <HomeSection />
+        <BlogList posts={posts} />
       </PreviewSuspense>
     );
   }
