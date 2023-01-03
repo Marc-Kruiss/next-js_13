@@ -1,8 +1,12 @@
 import { previewData } from "next/headers";
+import BlogList from "../../components/BlogList";
 import HomeSection from "../../components/HomeSection";
 import PreviewSuspense from "../../components/PreviewSuspense";
+import { fetchPosts } from "../../utils/fetchPosts";
 
-function Homepage() {
+export const revalidate = 60; // in seconds
+
+const Homepage = async () => {
   if (previewData()) {
     return (
       <PreviewSuspense
@@ -17,11 +21,14 @@ function Homepage() {
     );
   }
 
+  const posts = await fetchPosts();
+
   return (
     <div className="h-[calc(100vh-80px)] w-full overflow-x-hidden overflow-y-scroll scrollbar-hide">
       <HomeSection />
+      <BlogList posts={posts} />
     </div>
   );
-}
+};
 
 export default Homepage;
