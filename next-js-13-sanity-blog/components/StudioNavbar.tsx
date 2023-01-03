@@ -9,7 +9,7 @@ const StudioNavbar = (props: NavbarProps) => {
         <ArrowLeftIcon className="h-5 w-5 cursor-pointer" />
         <span>Back to Website</span>
       </Link>
-      {props.renderDefault(props)}
+      <>{props.renderDefault(props)}</>
     </div>
   );
 };

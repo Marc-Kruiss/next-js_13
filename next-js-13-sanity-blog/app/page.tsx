@@ -1,5 +1,5 @@
 import { previewData } from "next/headers";
-import PreviewSuspense from "../components/sanity-studio/PreviewSuspense";
+import PreviewSuspense from "../components/PreviewSuspense";
 
 function Homepage() {
   if (previewData()) {

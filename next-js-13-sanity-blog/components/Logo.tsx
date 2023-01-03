@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { LogoProps } from "sanity";
 
-const Logo = (props: LogoProps) => {
+const Logo = (props: any) => {
+  const { renderDefault } = props;
   return (
     <div className="flex items-center rounded-full space-x-2">
       <Image
@@ -11,7 +12,7 @@ const Logo = (props: LogoProps) => {
         src="/images/logo.PNG"
         alt="MK"
       />
-      {props.renderDefault(props)}
+      {renderDefault && <>{props.renderDefault(props)}</>}
     </div>
   );
 };
